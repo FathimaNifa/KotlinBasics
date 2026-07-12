@@ -1,0 +1,58 @@
+fun main(){
+    
+    val name = "Fathima"
+    val mobileNumber = "9940300864"
+    val serviceProvider = "Airtel"
+    val rechargeAmount = "599"
+    fun customerDetails(){
+    println("Customer Name     :  $name")
+    println("Mobile Number     :  $mobileNumber")
+    println("Service Provider  :  $serviceProvider")
+    println("Recharge Amount   :  $rechargeAmount")
+    println()
+    }
+    
+ 
+
+fun rechargeAmount(amount : String){
+    when (amount) {
+        "199" ->{
+            customerDetails()
+            println("Plan Validity     : 28 days")
+            println("Daily Data        : 1 GB/day")
+            println("Recharge Status   : Successfull")
+        }
+        "299" ->{
+            customerDetails()
+            println("Plan Validity     : 28 days")
+            println("Daily Data        : 1.5 GB/day")
+            println("Recharge Status   : Successfull")
+        }
+        "399" ->{
+            customerDetails()
+            println("Plan Validity     : 56 days")
+            println("Daily Data        : 2 GB/day")
+            println("Recharge Status   : Successfull")
+        }
+        "599" ->{
+            customerDetails()
+            println("Plan Validity     : 84 days")
+            println("Daily Data        : 2 GB/day")
+            println("Recharge Status   : Successfull")
+        } else ->{
+            println("Invalid Recharge")
+        }
+    }
+    
+}
+    println("----------------------------------------")
+    println("       Mobile Recharge Summary")
+    println("----------------------------------------")
+    println()
+    rechargeAmount(rechargeAmount)
+    println()
+    println("----------------------------------------")
+    println("  Thank you for choosing our service!")
+    println("----------------------------------------")
+    
+}
