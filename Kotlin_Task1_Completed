@@ -1,10 +1,17 @@
-fun main(){
-    
-    val name = "Fathima"
+val name = "Fathima"
     val mobileNumber = "9940300864"
     val serviceProvider = "Airtel"
-    val rechargeAmount = "599"
-    fun customerDetails(){
+    val rechargeAmount = "299"
+
+
+fun main(){
+   
+    getPrintStatement()
+    
+}
+
+
+fun getCustomerDetails(){
     println("Customer Name     :  $name")
     println("Mobile Number     :  $mobileNumber")
     println("Service Provider  :  $serviceProvider")
@@ -14,28 +21,28 @@ fun main(){
     
  
 
-fun rechargeAmount(amount : String){
-    when (amount) {
+fun getRechargeAmount(rechargeAmount : String){
+    when (rechargeAmount) {
         "199" ->{
-            customerDetails()
+            getCustomerDetails()
             println("Plan Validity     : 28 days")
             println("Daily Data        : 1 GB/day")
             println("Recharge Status   : Successfull")
         }
         "299" ->{
-            customerDetails()
+            getCustomerDetails()
             println("Plan Validity     : 28 days")
             println("Daily Data        : 1.5 GB/day")
             println("Recharge Status   : Successfull")
         }
         "399" ->{
-            customerDetails()
+            getCustomerDetails()
             println("Plan Validity     : 56 days")
             println("Daily Data        : 2 GB/day")
             println("Recharge Status   : Successfull")
         }
         "599" ->{
-            customerDetails()
+            getCustomerDetails()
             println("Plan Validity     : 84 days")
             println("Daily Data        : 2 GB/day")
             println("Recharge Status   : Successfull")
@@ -43,13 +50,14 @@ fun rechargeAmount(amount : String){
             println("Invalid Recharge")
         }
     }
-    
 }
+
+fun getPrintStatement(){
     println("----------------------------------------")
     println("       Mobile Recharge Summary")
     println("----------------------------------------")
     println()
-    rechargeAmount(rechargeAmount)
+    getRechargeAmount(rechargeAmount)
     println()
     println("----------------------------------------")
     println("  Thank you for choosing our service!")
