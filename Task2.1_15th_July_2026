@@ -1,0 +1,77 @@
+package org.example
+
+
+fun main() {
+
+getEmployeeDetails()
+
+
+}
+
+fun getEmployeeDetails(){
+    print("Enter Employee Name : ")
+    val employeeName = readln()
+    print("Enter Employee ID   : ")
+    val employeeID = readln()
+    print("Enter Company Name  : ")
+    val companyName  = readln()
+    print("Enter Basic Salary  : ")
+    val basicSalary  = readln().toDouble()
+    print("Enter HRA Percentage  : ")
+    val hraPercentage = readln().toInt()
+    print("Enter DA Percentage  : ")
+    val daPercentage = readln().toInt()
+    print("Enter Tax Percentage  : ")
+    val taxPercentage = readln().toInt()
+    val hra = calculateHRA(basicSalary, hraPercentage )
+    val da = calculateDA(basicSalary, daPercentage )
+    val grossSalary =calculateGrossSalary(basicSalary, da ,hra )
+    val tax = calculateTax(grossSalary , taxPercentage)
+    val netSalary = calculateNetSalary(grossSalary, tax)
+    printSalarySlip(employeeName , employeeID , companyName , basicSalary ,hra, da, grossSalary,tax,netSalary)
+
+}
+
+
+fun printSalarySlip(employeeName : String, employeeID : String, companyName : String, basicSalary : Double, hra: Double, da : Double, grossSalary: Double, tax : Double, netSalary : Double) {
+    println("========================================")
+    println("          EMPLOYEE SALARY SLIP")
+    println("========================================")
+    println()
+    println("Employee Name : $employeeName")
+    println("Employee ID   : $employeeID")
+    println("Company       : $companyName")
+    println()
+    println("----------------------------------------")
+    println("Basic Salary  : ₹$basicSalary")
+    println("HRA           : ₹$hra")
+    println("DA            : ₹$da")
+    println("Gross Salary  : ₹$grossSalary")
+    println("Tax           : ₹$tax")
+    println("----------------------------------------")
+    println("Net Salary    : ₹$netSalary")
+    println()
+    println("========================================")
+}
+fun calculateHRA(basicSalary: Double, hraPercentage: Int ): Double {
+    return (basicSalary * hraPercentage)/100
+
+}
+
+fun calculateDA(basicSalary: Double, daPercentage: Int ): Double {
+    return (basicSalary * daPercentage)/100
+
+}
+fun calculateGrossSalary(basicSalary: Double, da: Double ,hra : Double): Double {
+    return basicSalary + hra+ da
+
+}
+fun calculateTax(grossSalary : Double, taxPercentage : Int): Double {
+ return (grossSalary * taxPercentage)/100
+
+}
+
+fun calculateNetSalary(grossSalary: Double, tax: Double): Double {
+    return grossSalary - tax
+
+}
