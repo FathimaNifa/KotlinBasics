@@ -1,0 +1,93 @@
+package org.example
+
+
+
+fun main() {
+getCustomerDetails()
+
+}
+fun getCustomerDetails(){
+    print("Enter Customer Name        : ")
+    val customerName = readln()
+    print("Enter Item1 Price          : ")
+    val item1Price = readln().toDouble()
+    print("Enter Item1 Quantity       : ")
+    val item1Quantity  = readln().toInt()
+    print("Enter Item2 Price          : ")
+    val item2Price  = readln().toDouble()
+    print("Enter Item2 Quantity       : ")
+    val item2Quantity = readln().toInt()
+    print("Enter Item3 Price          : ")
+    val item3Price = readln().toDouble()
+    print("Enter Item3 Quantity       : ")
+    val item3Quantity = readln().toInt()
+    print("Enter GST Percentage       : ")
+    val gstPercent = readln().toFloat()
+    print("Enter Discount Percentage  : ")
+    val disPercent = readln().toFloat()
+    val item1 = calculateItem1(item1Price,item1Quantity  )
+    val item2 = calculateItem2(item2Price,item2Quantity  )
+    val item3 = calculateItem3(item3Price,item3Quantity  )
+    val subTotal = calculateSubtotal(item1, item2, item3)
+    val gst = calculateGST(subTotal, gstPercent)
+    val discount = calculateDiscount(subTotal,disPercent)
+    val finalAmount = calculateFinalAmount(subTotal, gst, discount)
+    printRestaurantBill(customerName, item1, item2, item3, subTotal, gst, discount, finalAmount, gstPercent,disPercent, item1Price, item2Price, item3Price, item1Quantity, item2Quantity, item3Quantity)
+
+}
+
+
+fun printRestaurantBill(customerName : String, item1 : Double, item2 : Double, item3 : Double, subTotal: Double, gst : Double, discount: Double, finalAmount : Double, gstPercent: Float, disPercent: Float,item1Price: Double,item2Price: Double,item3Price: Double,item1Quantity: Int, item2Quantity: Int,item3Quantity: Int) {
+    println("========================================")
+    println("          RESTAURANT BILL")
+    println("========================================")
+    println()
+    println("Customer Name : $customerName")
+    println()
+    println("Burger  ₹$item1Price*$item1Quantity : ₹$item1")
+    println("Pizza   ₹$item2Price*$item2Quantity : ₹$item2")
+    println("Juice   ₹$item3Price*$item3Quantity  : ₹$item3")
+    println()
+    println("----------------------------------------")
+    println("SubTotal        : ₹$subTotal")
+    println("GST (%$gstPercent)      : ₹$gst")
+    println("Discount (%$disPercent): ₹$discount")
+    println("----------------------------------------")
+    println("Final Amount    : ₹$finalAmount")
+    println()
+    println("========================================")
+    println("        THANK YOU! VISIT AGAIN...")
+    println("========================================")
+}
+fun calculateItem1(item1Price: Double, item1Quantity: Int ): Double {
+    return (item1Price * item1Quantity)
+
+}
+
+fun calculateItem2(item2Price: Double, item2Quantity: Int ): Double {
+    return (item2Price * item2Quantity)
+
+}
+fun calculateItem3(item3Price: Double, item3Quantity: Int ): Double {
+    return (item3Price * item3Quantity)
+
+}
+fun calculateSubtotal(item1: Double, item2 : Double, item3 : Double): Double {
+    return (item1+item2+item3)
+
+}
+
+fun calculateGST(subTotal: Double, gstPercent: Float): Double {
+    return (subTotal*gstPercent)/100
+
+}
+fun calculateDiscount(subTotal: Double, disPercent: Float): Double {
+    return (subTotal*disPercent)/100
+
+}
+fun calculateFinalAmount(subTotal: Double, gst: Double, discount: Double): Double {
+    return (subTotal+gst-discount)
+
+}
+
+
