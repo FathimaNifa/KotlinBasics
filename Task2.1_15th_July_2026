@@ -16,7 +16,7 @@ fun getEmployeeDetails(){
     print("Enter Company Name  : ")
     val companyName  = readln()
     print("Enter Basic Salary  : ")
-    val basicSalary  = readln().toDouble()
+    val basicSalary  = readln().toInt()
     print("Enter HRA Percentage  : ")
     val hraPercentage = readln().toInt()
     print("Enter DA Percentage  : ")
@@ -33,7 +33,7 @@ fun getEmployeeDetails(){
 }
 
 
-fun printSalarySlip(employeeName : String, employeeID : String, companyName : String, basicSalary : Double, hra: Double, da : Double, grossSalary: Double, tax : Double, netSalary : Double) {
+fun printSalarySlip(employeeName : String, employeeID : String, companyName : String, basicSalary : Int, hra: Int, da : Int, grossSalary: Int, tax : Int, netSalary : Int) {
     println("========================================")
     println("          EMPLOYEE SALARY SLIP")
     println("========================================")
@@ -53,25 +53,25 @@ fun printSalarySlip(employeeName : String, employeeID : String, companyName : St
     println()
     println("========================================")
 }
-fun calculateHRA(basicSalary: Double, hraPercentage: Int ): Double {
+fun calculateHRA(basicSalary: Int, hraPercentage: Int ): Int {
     return (basicSalary * hraPercentage)/100
 
 }
 
-fun calculateDA(basicSalary: Double, daPercentage: Int ): Double {
+fun calculateDA(basicSalary: Int, daPercentage: Int ): Int {
     return (basicSalary * daPercentage)/100
 
 }
-fun calculateGrossSalary(basicSalary: Double, da: Double ,hra : Double): Double {
+fun calculateGrossSalary(basicSalary: Int, da: Int ,hra : Int): Int {
     return basicSalary + hra+ da
 
 }
-fun calculateTax(grossSalary : Double, taxPercentage : Int): Double {
+fun calculateTax(grossSalary : Int, taxPercentage : Int): Int {
  return (grossSalary * taxPercentage)/100
 
 }
 
-fun calculateNetSalary(grossSalary: Double, tax: Double): Double {
+fun calculateNetSalary(grossSalary: Int, tax: Int): Int {
     return grossSalary - tax
 
 }
