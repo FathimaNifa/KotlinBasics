@@ -1,7 +1,5 @@
 package org.example
 
-
-
 fun main() {
 getCustomerDetails()
 
@@ -10,21 +8,21 @@ fun getCustomerDetails(){
     print("Enter Customer Name        : ")
     val customerName = readln()
     print("Enter Item1 Price          : ")
-    val item1Price = readln().toDouble()
+    val item1Price = readln().toInt()
     print("Enter Item1 Quantity       : ")
     val item1Quantity  = readln().toInt()
     print("Enter Item2 Price          : ")
-    val item2Price  = readln().toDouble()
+    val item2Price  = readln().toInt()
     print("Enter Item2 Quantity       : ")
     val item2Quantity = readln().toInt()
     print("Enter Item3 Price          : ")
-    val item3Price = readln().toDouble()
+    val item3Price = readln().toInt()
     print("Enter Item3 Quantity       : ")
     val item3Quantity = readln().toInt()
     print("Enter GST Percentage       : ")
-    val gstPercent = readln().toFloat()
+    val gstPercent = readln().toInt()
     print("Enter Discount Percentage  : ")
-    val disPercent = readln().toFloat()
+    val disPercent = readln().toInt()
     val item1 = calculateItem1(item1Price,item1Quantity  )
     val item2 = calculateItem2(item2Price,item2Quantity  )
     val item3 = calculateItem3(item3Price,item3Quantity  )
@@ -37,7 +35,7 @@ fun getCustomerDetails(){
 }
 
 
-fun printRestaurantBill(customerName : String, item1 : Double, item2 : Double, item3 : Double, subTotal: Double, gst : Double, discount: Double, finalAmount : Double, gstPercent: Float, disPercent: Float,item1Price: Double,item2Price: Double,item3Price: Double,item1Quantity: Int, item2Quantity: Int,item3Quantity: Int) {
+fun printRestaurantBill(customerName : String, item1 : Int, item2 : Int, item3 : Int, subTotal: Int, gst : Int, discount: Int, finalAmount : Int, gstPercent: Int, disPercent: Int,item1Price: Int,item2Price: Int,item3Price: Int,item1Quantity: Int, item2Quantity: Int,item3Quantity: Int) {
     println("========================================")
     println("          RESTAURANT BILL")
     println("========================================")
@@ -50,8 +48,8 @@ fun printRestaurantBill(customerName : String, item1 : Double, item2 : Double, i
     println()
     println("----------------------------------------")
     println("SubTotal        : ₹$subTotal")
-    println("GST (%$gstPercent)      : ₹$gst")
-    println("Discount (%$disPercent): ₹$discount")
+    println("GST (%$gstPercent)        : ₹$gst")
+    println("Discount (%$disPercent)  : ₹$discount")
     println("----------------------------------------")
     println("Final Amount    : ₹$finalAmount")
     println()
@@ -59,33 +57,33 @@ fun printRestaurantBill(customerName : String, item1 : Double, item2 : Double, i
     println("        THANK YOU! VISIT AGAIN...")
     println("========================================")
 }
-fun calculateItem1(item1Price: Double, item1Quantity: Int ): Double {
+fun calculateItem1(item1Price: Int, item1Quantity: Int ): Int {
     return (item1Price * item1Quantity)
 
 }
 
-fun calculateItem2(item2Price: Double, item2Quantity: Int ): Double {
+fun calculateItem2(item2Price: Int, item2Quantity: Int ): Int {
     return (item2Price * item2Quantity)
 
 }
-fun calculateItem3(item3Price: Double, item3Quantity: Int ): Double {
+fun calculateItem3(item3Price: Int, item3Quantity: Int ): Int {
     return (item3Price * item3Quantity)
 
 }
-fun calculateSubtotal(item1: Double, item2 : Double, item3 : Double): Double {
+fun calculateSubtotal(item1: Int, item2 : Int, item3 : Int): Int {
     return (item1+item2+item3)
 
 }
 
-fun calculateGST(subTotal: Double, gstPercent: Float): Double {
+fun calculateGST(subTotal: Int, gstPercent: Int): Int {
     return (subTotal*gstPercent)/100
 
 }
-fun calculateDiscount(subTotal: Double, disPercent: Float): Double {
+fun calculateDiscount(subTotal: Int, disPercent: Int): Int {
     return (subTotal*disPercent)/100
 
 }
-fun calculateFinalAmount(subTotal: Double, gst: Double, discount: Double): Double {
+fun calculateFinalAmount(subTotal: Int, gst: Int, discount: Int): Int {
     return (subTotal+gst-discount)
 
 }
