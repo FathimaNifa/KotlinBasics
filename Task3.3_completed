@@ -1,0 +1,79 @@
+package org.example
+
+fun main() {
+
+getAtmMenu()
+
+}
+
+fun getCheckBalance(choice : Int, balance:Int):Int {
+
+    var checkBalance = balance
+
+
+    if (choice == 1) {
+        println("Your Current balance is : $checkBalance")
+
+    } else if (choice == 2) {
+      checkBalance =  getDepositeAmt(checkBalance)
+
+    } else if (choice == 3) {
+        checkBalance = getWithdrawAmt(checkBalance)
+
+    } else {
+        println("Invalid Input")
+    }
+
+    return checkBalance
+
+}
+fun getDepositeAmt(balance: Int): Int {
+
+    print("Enter the Amount : ")
+    var depositeAmt = readln().toInt()
+   val checkBalance = balance + depositeAmt
+    println("Your Current balance is : $checkBalance")
+    println()
+    return checkBalance
+}
+fun getWithdrawAmt(balance: Int): Int{
+
+    var checkBalance = balance
+    print("Enter WithDraw Amount : ")
+    var withdrawAmt = readln().toInt()
+    if(withdrawAmt>checkBalance){
+        println("Insufficient Balance")
+    }else {
+        checkBalance = balance - withdrawAmt
+        println("Please Collect your Cash!.....")
+        println("Your Current balance is : $checkBalance")
+        println()
+    }
+    return checkBalance
+}
+fun getAtmMenu(){
+
+    var balance = 10000
+    while(true) {
+        println("====== ATM MENU ======")
+        println()
+        println("1. Check Balance")
+        println("2. Deposit")
+        println("3. Withdraw")
+        println("4. Exit")
+        println()
+        println("--------------------------")
+        println()
+        print("Enter your Choice: ")
+
+        val choice = readln().toInt()
+        if (choice == 4) {
+            println("Thank you for using the ATM!")
+            break
+        }
+
+        balance = getCheckBalance(choice, balance)
+
+        println()
+    }
+}
