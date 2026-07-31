@@ -9,21 +9,22 @@ getAtmMenu()
 fun getCheckBalance(choice : Int, balance:Int):Int {
 
     var checkBalance = balance
+    when (choice) {
+        1 -> {
+            println("Your Current balance is : $checkBalance")
+        }
+        2 -> {
+            checkBalance= getDepositeAmt(checkBalance)
+        }
+        3 -> {
+            checkBalance= getWithdrawAmt(checkBalance)
+        }
+        else -> {
+            println("Invalid Input")
 
+        }
 
-    if (choice == 1) {
-        println("Your Current balance is : $checkBalance")
-
-    } else if (choice == 2) {
-      checkBalance =  getDepositeAmt(checkBalance)
-
-    } else if (choice == 3) {
-        checkBalance = getWithdrawAmt(checkBalance)
-
-    } else {
-        println("Invalid Input")
     }
-
     return checkBalance
 
 }
