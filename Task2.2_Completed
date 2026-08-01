@@ -57,35 +57,24 @@ fun printRestaurantBill(customerName : String, item1 : Int, item2 : Int, item3 :
     println("        THANK YOU! VISIT AGAIN...")
     println("========================================")
 }
-fun calculateItem1(item1Price: Int, item1Quantity: Int ): Int {
-    return (item1Price * item1Quantity)
+fun calculateItem1(item1Price: Int, item1Quantity: Int ): Int = item1Price * item1Quantity
 
-}
 
-fun calculateItem2(item2Price: Int, item2Quantity: Int ): Int {
-    return (item2Price * item2Quantity)
 
-}
-fun calculateItem3(item3Price: Int, item3Quantity: Int ): Int {
-    return (item3Price * item3Quantity)
+fun calculateItem2(item2Price: Int, item2Quantity: Int ): Int = item2Price * item2Quantity
 
-}
-fun calculateSubtotal(item1: Int, item2 : Int, item3 : Int): Int {
-    return (item1+item2+item3)
 
-}
+fun calculateItem3(item3Price: Int, item3Quantity: Int ): Int = item3Price * item3Quantity
 
-fun calculateGST(subTotal: Int, gstPercent: Int): Int {
-    return (subTotal*gstPercent)/100
+fun calculateSubtotal(item1: Int, item2 : Int, item3 : Int): Int = item1+item2+item3
 
-}
-fun calculateDiscount(subTotal: Int, disPercent: Int): Int {
-    return (subTotal*disPercent)/100
 
-}
-fun calculateFinalAmount(subTotal: Int, gst: Int, discount: Int): Int {
-    return (subTotal+gst-discount)
 
-}
+fun calculateGST(subTotal: Int, gstPercent: Int): Int = (subTotal*gstPercent)/100
+
+
+fun calculateDiscount(subTotal: Int, disPercent: Int): Int = (subTotal*disPercent)/100
+
+fun calculateFinalAmount(subTotal: Int, gst: Int, discount: Int): Int = subTotal+gst-discount
 
 
